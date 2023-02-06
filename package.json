@@ -1,0 +1,32 @@
+{
+  "name": "tesla",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-three/drei": "9.56.17",
+    "@react-three/fiber": "8.10.4",
+    "@types/react-native": "0.70.6",
+    "expo": "47.0.13",
+    "expo-gl": "12.0.1",
+    "expo-status-bar": "1.4.2",
+    "react": "18.1.0",
+    "react-native": "0.70.5",
+    "three": "0.149.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.12.9",
+    "@tsconfig/react-native": "2.0.3",
+    "@types/jest": "29.4.0",
+    "@types/react": "18.0.27",
+    "@types/react-test-renderer": "18.0.0",
+    "@types/three": "0.149.0",
+    "typescript": "4.9.5"
+  },
+  "private": true
+}
