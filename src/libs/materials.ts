@@ -18,7 +18,7 @@ export default {
         reflectivity: 0.5,
         // transmission: 0.94, // Expo-gl does not support transmission.
         transparent: true,
-        opacity: 0.35,
+        opacity: 0.5,
         color: 0x000,
         side: DoubleSide,
     },

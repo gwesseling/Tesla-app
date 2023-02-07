@@ -1,20 +1,44 @@
-import {useRef} from "react";
 import { useGLTF } from '@react-three/drei/native'
 import teslaModel from '../../assets/test4.glb';
 
 import { useMaterial } from '../hooks/material';
-import { Group } from "three";
 
 // TODO: make a hook for the geometry
 export default function Model() {
   const { nodes } = useGLTF(teslaModel, false);
 
-  const ref = useRef<Group | null>(null);
+  // const ref = useRef<any>();
+  // const mouseXRef = useRef<number>();
+  // const [isDragging, setIsDragging] = useState<boolean>(false);
+
+  // useFrame(({pointer}) => {
+  //   if (!isDragging) return;
+
+  //   if (ref.current && mouseXRef.current) {
+  //     const deltaX = (pointer.x - mouseXRef.current);
+
+  //     ref.current.rotation.y += deltaX;
+  //   }
+
+  //   // mouseXRef.current = pointer.x;
+  // });
+
+  // function onUp() {
+  //   setIsDragging(false);
+  // }
+
+  // function onDown({point}) {
+  //   mouseXRef.current = point.x;
+  //   setIsDragging(true);
+  // }
 
   const materials = useMaterial();
 
   return (
-    <group ref={ref} dispose={null} position={[0.40, 0, -1]} rotation={[0, -Math.PI / 6, 0]}>
+    <group dispose={null} position={[0.4, 0, -1.5]} rotation={[0, -Math.PI / 4, 0]} 
+      // onPointerUp={onUp}
+      // onPointerDown={onDown}
+    >
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.01}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group
