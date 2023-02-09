@@ -1,16 +1,7 @@
 import {View, Text, StyleSheet} from "react-native";
-import Menu from "./Menu";
 import UserIcon from "./icons/User";
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: "column", 
-        paddingTop: 30, 
-        padding: 20, 
-        paddingBottom: 0, 
-        justifyContent: "space-between"
-    },
     content: {
         flexDirection: "row", 
         justifyContent: "space-between", 
@@ -43,7 +34,7 @@ const styles = StyleSheet.create({
 
 export default function TopBar() {
     return (
-        <View style={styles.container}>
+        <>
             <View style={styles.content}>
                 <View>
                   <Text style={styles.title}>Tesla</Text>
@@ -54,8 +45,6 @@ export default function TopBar() {
                   <UserIcon style={styles.userIcon} height={35} width={35} fill="#595959" />
                 </View>
             </View>
-
-            <Menu />
-        </View>
+        </>
     );
 }

@@ -1,5 +1,6 @@
 
-import {View, Text, StyleSheet} from "react-native";
+import {View, Text, StyleSheet, Pressable} from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import menu, {MenuItem} from "../libs/menu";
 import CheveronRight from "./icons/CheveronRight";
 
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         minHeight: 50,
         width: '100%',
-        marginBottom: 10
+        marginBottom: 10,
     },
     icon: {
         marginRight: 15
@@ -40,10 +41,16 @@ const styles = StyleSheet.create({
 });
 
 export default function Menu() {
+    const navigation = useNavigation();
 
-    function renderMenu({id, title, description, icon: Icon}: MenuItem) {
+    function renderMenu({id, title, description, icon: Icon, screen}: MenuItem) {
+
+        function onPress() {
+            navigation.navigate(screen);
+        }
+
         return (
-            <View style={styles.item} key={id}>
+            <Pressable style={styles.item} key={id} onPress={onPress} hitSlop={10}>
                 <Icon height={20} width={20} fill="#8A8B8B" style={styles.icon} />
 
                 <View style={styles.container}>
@@ -54,7 +61,7 @@ export default function Menu() {
 
                     <CheveronRight height={20} width={20} fill="#8A8B8B" />
                 </View>
-            </View>
+            </Pressable>
         );
     }
 
