@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-spring/three": "^9.6.1",
     "@react-three/drei": "9.56.17",
     "@react-three/fiber": "8.10.4",
     "@types/react-native": "0.70.6",

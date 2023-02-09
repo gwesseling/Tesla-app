@@ -1,14 +1,11 @@
+import {useEffect, useRef, useState} from "react";
 import { useGLTF } from '@react-three/drei/native'
 import teslaModel from '../../assets/test4.glb';
 
 import { useMaterial } from '../hooks/material';
+import { useSpring, animated } from '@react-spring/three';
 
-// TODO: make a hook for the geometry
-export default function Model() {
-  const { nodes } = useGLTF(teslaModel, false);
-
-  // const ref = useRef<any>();
-  // const mouseXRef = useRef<number>();
+// const mouseXRef = useRef<number>();
   // const [isDragging, setIsDragging] = useState<boolean>(false);
 
   // useFrame(({pointer}) => {
@@ -32,10 +29,29 @@ export default function Model() {
   //   setIsDragging(true);
   // }
 
+// TODO: make a hook for the geometry
+export default function Model() {
+  const { nodes } = useGLTF(teslaModel, false);
+
+  const [active, setActive] = useState<boolean>(false);
+
+  const [spring, api] = useSpring(() => ({rotation: [0, 0, 0], position: [0, 0, -1.5] }));
+
+  useEffect(() => {
+    if (active) {
+        api.start({rotation: [Math.PI / 3, Math.PI, 0], position: [0, 0, 1]});
+        return;
+    }
+
+    api.start({rotation: [0, -Math.PI / 4, 0], position: [0, 0, -1.5]});
+  }, [active]);
+
+  const ref = useRef<any>();
   const materials = useMaterial();
 
   return (
-    <group dispose={null} position={[0.4, 0, -1.5]} rotation={[0, -Math.PI / 4, 0]} 
+    <animated.group dispose={null} position={spring.position} rotation={spring.rotation} ref={ref}
+      onClick={() => setActive(!active)}
       // onPointerUp={onUp}
       // onPointerDown={onDown}
     >
@@ -948,6 +964,6 @@ export default function Model() {
           </group>
         </group>
       </group>
-    </group>
+    </animated.group>
   );
 }
