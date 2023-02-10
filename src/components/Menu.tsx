@@ -6,7 +6,9 @@ import CheveronRight from "./icons/CheveronRight";
 
 const styles = StyleSheet.create({
     menu: {
-        flexDirection: "column"
+        flexDirection: "column",
+        padding: 20,
+        paddingBottom: 0,
     },
     item: {
         flexDirection: 'row',

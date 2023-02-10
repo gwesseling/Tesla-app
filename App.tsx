@@ -26,14 +26,13 @@ const styles = StyleSheet.create({
     width: "100%",
     position: "absolute",
     paddingTop: 30, 
-    padding: 20, 
-    paddingBottom: 0,
     zIndex: 1
   },
   screen: {
     flexDirection: "column", 
     justifyContent: "space-between",
     backgroundColor: "transparent",
+    marginTop: 20, 
   },
 });
 

@@ -20,11 +20,11 @@ const styles = StyleSheet.create({
 export default function Renderer() {
     const routeName = useNavigationState((state) => state?.routes[state.index].name);
 
-    const [spring, api] = useSpring(() => ({rotation: [0, 0, 0], position: [0.4, 0, -1.5] }));
+    const [spring, api] = useSpring(() => ({rotation: [0.4, 0, -1.5], position: [0.4, 0, -1.5] }));
 
     useEffect(() => {
         if (routeName === "Climate") {
-            api.start({rotation: [Math.PI / 3, Math.PI, 0], position: [0, 0, 1]});
+            api.start({rotation: [Math.PI / 3, Math.PI, 0], position: [0, 0.5, 2]});
             return;
         }
 

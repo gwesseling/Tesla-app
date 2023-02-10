@@ -4,9 +4,10 @@ import UserIcon from "./icons/User";
 const styles = StyleSheet.create({
     content: {
         flexDirection: "row", 
-        justifyContent: "space-between", 
-        marginTop: 20, 
-        top: 0
+        justifyContent: "space-between",
+        top: 0,
+        padding: 20,
+        paddingTop: 0,
     },
     title: {
         color: "#8A8B8B", 
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default function TopBar() {
+export default function Banner() {
     return (
         <>
             <View style={styles.content}>
