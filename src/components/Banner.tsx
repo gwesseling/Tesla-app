@@ -1,5 +1,6 @@
 import {View, Text, StyleSheet} from "react-native";
 import UserIcon from "./icons/User";
+import BatteryIcon from "./icons/Battery";
 
 const styles = StyleSheet.create({
     content: {
@@ -40,6 +41,11 @@ export default function Banner() {
                 <View>
                   <Text style={styles.title}>Tesla</Text>
                   <Text style={styles.subtitle}>Roadster</Text>
+
+                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <BatteryIcon height={25} width={25} fill="#8A8B8B" />
+                    <Text style={{marginLeft: 10, color: "#8A8B8B", fontWeight: 'bold'}}>510km</Text>
+                  </View>
                 </View>
 
                 <View style={styles.user}>

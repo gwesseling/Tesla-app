@@ -6,6 +6,7 @@ import {Environment, ContactShadows} from '@react-three/drei/native';
 import {useSpring} from '@react-spring/three';
 import { Vector3 } from "three";
 import Model from "./Model";
+import ROUTES_CONFIG from "../libs/placement";
 
 const DEFAULT_CAMERA_POSITION = new Vector3(0, 2.5, 5);
 
@@ -20,11 +21,13 @@ const styles = StyleSheet.create({
 export default function Renderer() {
     const routeName = useNavigationState((state) => state?.routes[state.index].name);
 
-    const [spring, api] = useSpring(() => ({rotation: [0.4, 0, -1.5], position: [0.4, 0, -1.5] }));
+    const [spring, api] = useSpring(() => ({rotation: [0, -Math.PI / 4, 0], position: [0.4, 0, -1.5] }));
 
     useEffect(() => {
-        if (routeName === "Climate") {
-            api.start({rotation: [Math.PI / 3, Math.PI, 0], position: [0, 0.5, 2]});
+        if (ROUTES_CONFIG[routeName]) {
+            const {rotation, position} = ROUTES_CONFIG[routeName]
+
+            api.start({rotation, position});
             return;
         }
 

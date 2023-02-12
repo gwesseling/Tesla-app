@@ -2,10 +2,8 @@ import {SafeAreaView, StyleSheet, View} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from 'expo-linear-gradient';
 import Renderer from "./src/components/Renderer";
-
-// Pages
-import Home from "./src/components/screens/Home";
-import Climate from "./src/components/screens/Climate";
+import { Routes } from "./src/libs/enums";
+import routesMap from "./src/libs/routes";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -53,9 +51,8 @@ export default function App() {
         >
           <NavigationContainer>
             <View style={styles.content}>
-                <Stack.Navigator initialRouteName="Home" screenOptions={OPTIONS}>
-                    <Stack.Screen name="Home" component={Home} />
-                    <Stack.Screen name="Climate" component={Climate} />
+                <Stack.Navigator initialRouteName={Routes.Home} screenOptions={OPTIONS}>
+                    {routesMap.map(([key, value]) => <Stack.Screen name={key} component={value} key={key} />)}
                 </Stack.Navigator>
             </View>
 

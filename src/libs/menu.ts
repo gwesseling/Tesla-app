@@ -5,6 +5,7 @@ import FanIcon from "../components/icons/Fan";
 import ShieldIcon from "../components/icons/Shield";
 import DownloadIcon from "../components/icons/Download";
 import SummonIcon from "../components/icons/Summon";
+import { Routes } from "../libs/enums";
 
 export type MenuItem = {
     id: number;
@@ -20,41 +21,41 @@ export default [
         title: "Controls",
         description: "Control your Tesla from outside the car",
         icon: CarIcon,
-        screen: 'Home',
+        screen: Routes.Controls,
       },
       {
         id: 1,
         title: "Climate",
         description: "Interior 20°C",
         icon: FanIcon,
-        screen: 'Climate',
+        screen: Routes.Climate,
       },
       {
         id: 2,
         title: "Location",
         description: "Lincoln Boulevard, near Doyle Drive and Fort Point, San Francisco, CA 94129",
         icon: LocationIcon,
-        screen: 'Home',
+        screen: Routes.Home,
       },
       {
         id: 3,
         title: "Summon",
         description: "Your Tesla will drive itself towards you",
         icon: SummonIcon,
-        screen: 'Home',
+        screen: Routes.Home,
       },
       {
         id: 4,
         title: "Security",
         description: "Samsung Galaxy S22 - disconnected",
         icon: ShieldIcon,
-        screen: 'Home',
+        screen: Routes.Home,
       },
       {
         id: 5,
         title: "Upgrades",
         description: "Version 2.01.04.2-beta is ready for installation",
         icon: DownloadIcon,
-        screen: 'Home',
+        screen: Routes.Home,
       },
 ]

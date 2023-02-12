@@ -1,4 +1,3 @@
-import { View } from "react-native";
 import Banner from "../Banner";
 import Menu from "../Menu";
 
