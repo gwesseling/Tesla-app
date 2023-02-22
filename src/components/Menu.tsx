@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         padding: 20,
         paddingBottom: 0,
-        backgroundColor: 'rgba(22, 23, 24, .9)'
     },
     item: {
         flexDirection: 'row',
@@ -49,7 +48,7 @@ export default function Menu() {
     function renderMenu({id, title, description, icon: Icon, screen}: MenuItem) {
 
         function onPress() {
-            navigation.navigate(screen);
+            navigation.navigate(screen as never);
         }
 
         return (

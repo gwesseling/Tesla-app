@@ -5,7 +5,6 @@ import CheveronLeft from "../icons/CheveronLeft";
 const styles = StyleSheet.create({
     container: {
         padding: 20,
-        paddingTop: 0,
     }
 });
 
