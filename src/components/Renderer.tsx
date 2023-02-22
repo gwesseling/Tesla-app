@@ -1,12 +1,13 @@
 import {Suspense, useEffect} from "react";
-import {View, StyleSheet} from "react-native";
+import {StyleSheet} from "react-native";
 import {useNavigationState} from '@react-navigation/native';
 import {Canvas} from '@react-three/fiber/native';
 import {Environment, ContactShadows} from '@react-three/drei/native';
 import {useSpring} from '@react-spring/three';
 import { Vector3 } from "three";
+import { LinearGradient } from "expo-linear-gradient";
 import Model from "./Model";
-import ROUTES_CONFIG from "../libs/placement";
+import ROUTES_CONFIG, {DEFAULT_PLACEMENT} from "../libs/placement";
 
 const DEFAULT_CAMERA_POSITION = new Vector3(0, 2.5, 5);
 
@@ -21,21 +22,18 @@ const styles = StyleSheet.create({
 export default function Renderer() {
     const routeName = useNavigationState((state) => state?.routes[state.index].name);
 
-    const [spring, api] = useSpring(() => ({rotation: [0, -Math.PI / 4, 0], position: [0.4, 0, -1.5] }));
+    const [spring, api] = useSpring(() => (DEFAULT_PLACEMENT));
 
     useEffect(() => {
-        if (ROUTES_CONFIG[routeName]) {
-            const {rotation, position} = ROUTES_CONFIG[routeName]
-
-            api.start({rotation, position});
-            return;
-        }
-
-        api.start({rotation: [0, -Math.PI / 4, 0], position: [0.4, 0, -1.5]});
+        api.start(ROUTES_CONFIG[routeName] || DEFAULT_PLACEMENT);
     }, [routeName]);
 
     return (
-        <View style={styles.container}>
+        <LinearGradient 
+            colors={['#161718', '#333333', '#161718']}
+            locations={[0.15, 0.4, 0.55]}
+            style={styles.container}
+        >
             <Canvas gl={{physicallyCorrectLights: true}} camera={{position: DEFAULT_CAMERA_POSITION}}>
                 <Suspense>
                     <Model rotation={spring.rotation} position={spring.position} />
@@ -45,6 +43,6 @@ export default function Renderer() {
                     <Environment preset="sunset" />
                 </Suspense>
             </Canvas>
-        </View>
+        </LinearGradient>
     );
 }

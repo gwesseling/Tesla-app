@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         padding: 20,
         paddingBottom: 0,
+        backgroundColor: 'rgba(22, 23, 24, .9)'
     },
     item: {
         flexDirection: 'row',
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row", 
         alignItems: "center", 
-        justifyContent: "space-between"
+        justifyContent: "space-between",
     },
     content: {
         flex: 1,
@@ -67,7 +68,5 @@ export default function Menu() {
         );
     }
 
-    return (
-        <View style={styles.menu}>{menu.map(renderMenu)}</View>
-    );
+    return <View style={styles.menu}>{menu.map(renderMenu)}</View>;
 }
