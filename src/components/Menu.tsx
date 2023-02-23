@@ -7,15 +7,17 @@ import CheveronRight from "./icons/CheveronRight";
 const styles = StyleSheet.create({
     menu: {
         flexDirection: "column",
-        padding: 20,
-        paddingBottom: 0,
+        padding: 10,
     },
     item: {
         flexDirection: 'row',
         alignItems: "center",
         minHeight: 50,
         width: '100%',
-        marginBottom: 10,
+        padding: 10,
+        paddingBottom: 15,
+        paddingTop: 15,
+        borderRadius: 5,
     },
     icon: {
         marginRight: 15
@@ -38,22 +40,22 @@ const styles = StyleSheet.create({
     description: {
         fontWeight: "bold",
         fontSize: 12, 
-        color: "#8A8B8B"
+        color: "#888a90"
     }
 });
 
 export default function Menu() {
     const navigation = useNavigation();
 
-    function renderMenu({id, title, description, icon: Icon, screen}: MenuItem) {
+    function renderMenu({id, style = {}, title, description, icon: Icon, screen}: MenuItem) {
 
         function onPress() {
             navigation.navigate(screen as never);
         }
 
         return (
-            <Pressable style={styles.item} key={id} onPress={onPress} hitSlop={10}>
-                <Icon height={20} width={20} fill="#8A8B8B" style={styles.icon} />
+            <Pressable style={[styles.item, style]} key={id} onPress={onPress} hitSlop={10}>
+                <Icon height={20} width={20} fill="#888a90" style={styles.icon} />
 
                 <View style={styles.container}>
                     <View style={styles.content}>
@@ -61,11 +63,11 @@ export default function Menu() {
                         <Text style={styles.description}>{description}</Text>
                     </View>
 
-                    <CheveronRight height={20} width={20} fill="#8A8B8B" />
+                    <CheveronRight height={20} width={20} fill="#56585d" />
                 </View>
             </Pressable>
         );
     }
 
-    return <View style={styles.menu}>{menu.map(renderMenu)}</View>;
+    return <View style={styles.menu} onLayout={(e) => console.log(e.nativeEvent.layout.height)}>{menu.map(renderMenu)}</View>;
 }

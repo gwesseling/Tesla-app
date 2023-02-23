@@ -35,6 +35,7 @@ const OPTIONS = {
   contentStyle: styles.screen,
 }
 
+// TODO: ts path aliases
 export default function App() {
   return (
       <SafeAreaView style={styles.container}>

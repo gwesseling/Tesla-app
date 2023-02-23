@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     title: {
-        color: "#8A8B8B", 
+        color: "#888a90", 
         fontWeight: "bold", 
         fontSize: 25
     },
@@ -41,13 +41,13 @@ export default function Banner() {
                   <Text style={styles.subtitle}>Roadster</Text>
 
                   <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <BatteryIcon height={25} width={25} fill="#8A8B8B" />
-                    <Text style={{marginLeft: 10, color: "#8A8B8B", fontWeight: 'bold'}}>510km</Text>
+                    <BatteryIcon height={25} width={25} fill="#888a90" />
+                    <Text style={{marginLeft: 10, color: "#888a90", fontWeight: 'bold'}}>510km</Text>
                   </View>
                 </View>
 
                 <View style={styles.user}>
-                  <UserIcon style={styles.userIcon} height={35} width={35} fill="#595959" />
+                  <UserIcon style={styles.userIcon} height={35} width={35} fill="#888a90" />
                 </View>
             </View>
         </>

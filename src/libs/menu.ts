@@ -1,13 +1,16 @@
+import {StyleProp, ViewStyle} from "react-native"
 import { SvgProps } from "react-native-svg";
+import { Routes } from "../libs/enums";
 import LocationIcon from "../components/icons/Location";
 import CarIcon from "../components/icons/Car";
 import FanIcon from "../components/icons/Fan";
 import ShieldIcon from "../components/icons/Shield";
 import DownloadIcon from "../components/icons/Download";
 import SummonIcon from "../components/icons/Summon";
-import { Routes } from "../libs/enums";
+import ShopIcon from "../components/icons/Shop";
 
 export type MenuItem = {
+    style?: StyleProp<ViewStyle>;
     id: number;
     title: string;
     description: string;
@@ -16,6 +19,16 @@ export type MenuItem = {
 }
 
 export default [
+    {
+        id: 999,
+        style: {
+          backgroundColor: '#2c2d2f'
+        },
+        title: "Software update",
+        description: "Install 2022.69 now (~30 min)",
+        icon: DownloadIcon,
+        screen: Routes.Home
+    },
     {
         id: 0,
         title: "Controls",
@@ -54,8 +67,8 @@ export default [
       {
         id: 5,
         title: "Upgrades",
-        description: "Version 2.01.04.2-beta is ready for installation",
-        icon: DownloadIcon,
+        description: "Improve your Tesla",
+        icon: ShopIcon,
         screen: Routes.Home,
       },
 ]
