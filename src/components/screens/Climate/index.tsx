@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
 import PowerIcon from "../../icons/Power";
 import FanIcon from "../../icons/Fan";
 import Topbar from "../../shared/Topbar";
@@ -10,14 +9,17 @@ import Heat from "../../Heat";
 import useToggle from "../../../hooks/toggle";
 
 const styles = StyleSheet.create({
+    bar: {
+        alignItems: 'center',
+    },
     heat: {
         flexDirection: 'row', 
         position: 'absolute', 
-        top: '50%', 
+        top: '28%', 
         width: '100%', 
         justifyContent: 'space-evenly'
     },
-    bar: {
+    settings: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -50,19 +52,21 @@ export default function Climate() {
 
     return (
         <>
-            <Topbar />
+            <Topbar title="Climate" />
 
             <View style={styles.heat}>
                 <Heat />
                 <Heat />
             </View>
 
-            <LinearGradient style={styles.bar} colors={['transparent', '#161718']} locations={[0, 0.2]}>
-                <Pressable onPress={toggle}>
-                    <PowerIcon height={25} width={25} fill={isOn ? 'white' : '#8A8B8B'} />
-                </Pressable>
+            <View style={styles.bar}>
+                <Text style={styles.information}>Interior 20°C - Exterior 3°C</Text>
 
-                <View>
+                <View style={styles.settings}>
+                    <Pressable onPress={toggle}>
+                        <PowerIcon height={25} width={25} fill={isOn ? 'white' : '#8A8B8B'} />
+                    </Pressable>
+
                     <View style={styles.container}>
                         <Pressable hitSlop={10} onPress={decreaseTemperature}>
                             <CheveronLeftIcon height={20} width={20} fill="#8A8B8B" />
@@ -74,14 +78,12 @@ export default function Climate() {
                             <CheveronRightIcon height={20} width={20} fill="#8A8B8B" />
                         </Pressable>
                     </View>
-
-                    <Text style={styles.information}>Interior 20°C - Exterior 3°C</Text>
+                    
+                    <Pressable onPress={toggleFans}>
+                        <FanIcon height={25} width={25} fill={isAircoOn ? 'white' : '#8A8B8B'} />
+                    </Pressable>
                 </View>
-                
-                <Pressable onPress={toggleFans}>
-                    <FanIcon height={25} width={25} fill={isAircoOn ? 'white' : '#8A8B8B'} />
-                </Pressable>
-            </LinearGradient>
+            </View>
         </>
     );
 }

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
     position: "absolute",
-    paddingTop: 30, 
+    paddingTop: 25, 
     zIndex: 1,
   },
   screen: {
@@ -39,7 +39,7 @@ const OPTIONS = {
 export default function App() {
   return (
       <SafeAreaView style={styles.container}>
-        <StatusBar style="light" />
+        <StatusBar style="light" backgroundColor="#161718" />
 
           <NavigationContainer>
             <GestureHandlerRootView style={styles.content}>

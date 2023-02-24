@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
 
 export default function Renderer() {
     const routeName = useNavigationState((state) => state?.routes[state.index].name);
-
     const [spring, api] = useSpring(() => (DEFAULT_PLACEMENT));
 
     useEffect(() => {
