@@ -1,4 +1,5 @@
-import Svg, { SvgProps, Path } from "react-native-svg";
+/* eslint-disable max-len */
+import Svg, {SvgProps, Path} from "react-native-svg";
 
 export default function User(props: SvgProps) {
     return (

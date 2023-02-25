@@ -1,18 +1,18 @@
-import { useTexture } from '@react-three/drei/native';
-import materials from "../libs/materials";
+import {useTexture} from "@react-three/drei/native";
+import materials from "_LIBS/materials";
 
-import carbonFiberNormalMap from '../../assets/textures/carbon_fibre_normal.jpeg';
-import carbonFiberRoughnessMap from '../../assets/textures/carbon_fibre_metallicRoughness.png';
-import carbonFiberBaseColor from '../../assets/textures/carbon_fibre_baseColor.jpeg';
+import carbonFiberNormalMap from "_ASSETS/textures/carbon_fibre_normal.jpeg";
+import carbonFiberRoughnessMap from "_ASSETS/textures/carbon_fibre_metallicRoughness.png";
+import carbonFiberBaseColor from "_ASSETS/textures/carbon_fibre_baseColor.jpeg";
 
-import girllNormalMap from '../../assets/textures/grill_normal.png';
-import grillColor from '../../assets/textures/grill_baseColor.png';
+import girllNormalMap from "_ASSETS/textures/grill_normal.png";
+import grillColor from "_ASSETS/textures/grill_baseColor.png";
 
-import sidewallNormalMap from '../../assets/textures/Sidewall_normal.png';
-import sidewallColor from '../../assets/textures/Sidewall_baseColor.png';
+import sidewallNormalMap from "_ASSETS/textures/Sidewall_normal.png";
+import sidewallColor from "_ASSETS/textures/Sidewall_baseColor.png";
 
-import threadNormalMap from '../../assets/textures/Thread_normal.png';
-import threadColor from '../../assets/textures/Thread_baseColor.png';
+import threadNormalMap from "_ASSETS/textures/Thread_normal.png";
+import threadColor from "_ASSETS/textures/Thread_baseColor.png";
 
 export function useMaterial() {
     const carbonFiberTexture = useTexture({
@@ -57,5 +57,5 @@ export function useMaterial() {
         grill: <meshStandardMaterial attach="material" {...materials.grill} {...grillTexture} />,
         sidewall: <meshStandardMaterial attach="material" {...materials.sidewall} {...sidewallTexture} />,
         thread: <meshStandardMaterial attach="material" {...materials.thread} {...threadTexture} />,
-    }
+    };
 }

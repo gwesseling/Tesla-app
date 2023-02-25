@@ -1,10 +1,9 @@
-import { ScrollView } from "react-native-gesture-handler";
-import Banner from "../Banner";
-import Menu from "../Menu";
-import Drawer from "../shared/drawer";
+import Banner from "_COMPONENTS/Banner";
+import Menu from "_COMPONENTS/Menu";
+import Drawer from "_SHARED/drawer";
 
 // TODO: calculate this in the future
-const MENU_OFFSET =  0.55;
+const MENU_OFFSET = 0.55;
 
 export default function Home() {
     return (

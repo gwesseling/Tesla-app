@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 
 export default function useClimate() {
     const [temperature, setTemperature] = useState(20.0);

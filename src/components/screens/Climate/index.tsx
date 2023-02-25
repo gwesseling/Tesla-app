@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import {View, Text, StyleSheet, Pressable} from "react-native";
 import PowerIcon from "../../icons/Power";
 import FanIcon from "../../icons/Fan";
 import Topbar from "../../shared/Topbar";
@@ -10,38 +10,38 @@ import useToggle from "../../../hooks/toggle";
 
 const styles = StyleSheet.create({
     bar: {
-        alignItems: 'center',
+        alignItems: "center",
     },
     heat: {
-        flexDirection: 'row', 
-        position: 'absolute', 
-        top: '28%', 
-        width: '100%', 
-        justifyContent: 'space-evenly'
+        flexDirection: "row",
+        position: "absolute",
+        top: "28%",
+        width: "100%",
+        justifyContent: "space-evenly",
     },
     settings: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '100%',
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: "100%",
         padding: 20,
-        paddingBottom: 10
+        paddingBottom: 10,
     },
     container: {
-        flexDirection: 'row',
-        alignItems: 'center'
+        flexDirection: "row",
+        alignItems: "center",
     },
     temperature: {
         fontSize: 35,
-        color: 'white',
+        color: "white",
         marginLeft: 15,
-        marginRight: 15
+        marginRight: 15,
     },
     information: {
-        color: '#8A8B8B', 
-        fontWeight: 'bold',
+        color: "#888a90",
+        fontWeight: "bold",
         fontSize: 12,
-    }
+    },
 });
 
 // Set settings in local storage.
@@ -64,23 +64,23 @@ export default function Climate() {
 
                 <View style={styles.settings}>
                     <Pressable onPress={toggle}>
-                        <PowerIcon height={25} width={25} fill={isOn ? 'white' : '#8A8B8B'} />
+                        <PowerIcon height={25} width={25} fill={isOn ? "white" : "#888a90"} />
                     </Pressable>
 
                     <View style={styles.container}>
                         <Pressable hitSlop={10} onPress={decreaseTemperature}>
-                            <CheveronLeftIcon height={20} width={20} fill="#8A8B8B" />
+                            <CheveronLeftIcon height={20} width={20} fill="#888a90" />
                         </Pressable>
 
                         <Text style={styles.temperature}>{temperature.toFixed(1)}°</Text>
 
                         <Pressable hitSlop={10} onPress={increaseTemperature}>
-                            <CheveronRightIcon height={20} width={20} fill="#8A8B8B" />
+                            <CheveronRightIcon height={20} width={20} fill="#888a90" />
                         </Pressable>
                     </View>
-                    
+
                     <Pressable onPress={toggleFans}>
-                        <FanIcon height={25} width={25} fill={isAircoOn ? 'white' : '#8A8B8B'} />
+                        <FanIcon height={25} width={25} fill={isAircoOn ? "white" : "#888a90"} />
                     </Pressable>
                 </View>
             </View>

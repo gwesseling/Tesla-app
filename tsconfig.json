@@ -13,6 +13,14 @@
         "noEmitOnError": true,
         "strict": true,
         "target": "esnext",
-        "baseUrl": "."
-    },
+        "baseUrl": ".",
+        "paths": {
+            "*": ["src/*"],
+            "_COMPONENTS/*": ["src/components/*"],
+            "_ASSETS/*": ["assets/*"],
+            "_SHARED/*": ["src/components/shared/*"],
+            "_LIBS/*": ["src/libs/*"],
+            "_HOOKS/*": ["src/hooks/*"]
+        }
+    }
 }
