@@ -36,7 +36,6 @@ const OPTIONS = {
     contentStyle: styles.screen,
 };
 
-// TODO: ts path aliases
 export default function Entrypoint() {
     return (
         <View style={styles.container}>
