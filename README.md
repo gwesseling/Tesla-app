@@ -2,6 +2,8 @@
 
 This repository contains an app inspired by the Tesla app.
 
+https://user-images.githubusercontent.com/12099455/221868615-9251e841-f32c-4901-9781-e435f47fb5c4.mp4
+
 ## Goals
 The project was an experiment to see if it was possible to render a 3D model within a React Native app. This project has been on my mind for the last couple of years, but there were no libraries or frameworks available for rendering 3D models within React Native at that time. Creating this project also allowed me to explore other React Native packages such as: [Expo-GL](https://github.com/expo/expo), [React Three Fiber](https://github.com/pmndrs/react-three-fiber), [React Native Gesture Handler](https://github.com/software-mansion/react-native-gesture-handler), [React Native Reanimated](https://github.com/software-mansion/react-native-reanimated) and [React Spring](https://github.com/pmndrs/react-spring)
 
