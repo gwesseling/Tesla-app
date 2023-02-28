@@ -1,7 +1,5 @@
 # Tesla app
 
-This repository contains an app inspired by the Tesla app.
-
 https://user-images.githubusercontent.com/12099455/221868615-9251e841-f32c-4901-9781-e435f47fb5c4.mp4
 
 ## Goals
