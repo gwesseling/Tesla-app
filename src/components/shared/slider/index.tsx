@@ -1,7 +1,6 @@
-import {useState} from "react";
 import {View, StyleSheet} from "react-native";
-import {Gesture, GestureDetector} from "react-native-gesture-handler";
-import Animated, {useAnimatedStyle, useSharedValue} from "react-native-reanimated";
+import {GestureDetector} from "react-native-gesture-handler";
+import Animated, {useAnimatedStyle} from "react-native-reanimated";
 import useSlider from "./containerHook";
 
 const styles = StyleSheet.create({

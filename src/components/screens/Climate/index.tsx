@@ -1,12 +1,12 @@
 import {View, Text, StyleSheet, Pressable} from "react-native";
-import PowerIcon from "../../icons/Power";
-import FanIcon from "../../icons/Fan";
-import Topbar from "../../shared/Topbar";
+import PowerIcon from "_COMPONENTS/icons/Power";
+import FanIcon from "_COMPONENTS/icons/Fan";
+import Topbar from "_SHARED/Topbar";
+import CheveronLeftIcon from "_COMPONENTS/icons/CheveronLeft";
+import CheveronRightIcon from "_COMPONENTS/icons/CheveronRight";
+import Heat from "_COMPONENTS/Heat";
+import useToggle from "_HOOKS/toggle";
 import useClimate from "./containerHook";
-import CheveronLeftIcon from "../../icons/CheveronLeft";
-import CheveronRightIcon from "../../icons/CheveronRight";
-import Heat from "../../Heat";
-import useToggle from "../../../hooks/toggle";
 
 const styles = StyleSheet.create({
     bar: {
@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
     },
 });
 
-// Set settings in local storage.
 export default function Climate() {
     const {temperature, decreaseTemperature, increaseTemperature} = useClimate();
     const {isOn, toggle} = useToggle();

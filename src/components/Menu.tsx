@@ -2,7 +2,7 @@ import {View, Text, StyleSheet, Pressable} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import menu, {MenuItem} from "_LIBS/menu";
 import CheveronRight from "_COMPONENTS/icons/CheveronRight";
-import Hotbar from "_COMPONENTS/Hotbar";
+import Hotbar from "_SHARED/Hotbar";
 
 const styles = StyleSheet.create({
     menu: {

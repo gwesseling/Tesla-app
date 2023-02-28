@@ -4,30 +4,6 @@ import {animated} from "@react-spring/three";
 import {useMaterial} from "../hooks/material";
 import teslaModel from "_ASSETS/test4.glb";
 
-// const mouseXRef = useRef<number>();
-// const [isDragging, setIsDragging] = useState<boolean>(false);
-
-// useFrame(({pointer}) => {
-//   if (!isDragging) return;
-
-//   if (ref.current && mouseXRef.current) {
-//     const deltaX = (pointer.x - mouseXRef.current);
-
-//     ref.current.rotation.y += deltaX;
-//   }
-
-//   // mouseXRef.current = pointer.x;
-// });
-
-// function onUp() {
-//   setIsDragging(false);
-// }
-
-// function onDown({point}) {
-//   mouseXRef.current = point.x;
-//   setIsDragging(true);
-// }
-
 // TODO: find the right types
 type Props = {
     position: any;
@@ -45,8 +21,6 @@ export default function Model({position, rotation}: Props) {
             dispose={null}
             position={position}
             rotation={rotation}
-            // onPointerUp={onUp}
-            // onPointerDown={onDown}
         >
             <group rotation={[-Math.PI / 2, 0, 0]} scale={0.01}>
                 <group rotation={[Math.PI / 2, 0, 0]}>
