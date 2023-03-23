@@ -1,0 +1,68 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "eslint:recommended",
+        "google",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "rules": {
+        "no-unused-vars": "off",
+        "max-lines": ["error", {"max": 200, "skipBlankLines": true, "skipComments": true}],
+        "max-len": ["error", {"code": 120}],
+        "max-lines-per-function": ["warn", {"max": 50, "skipBlankLines": true, "skipComments": true}],
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "all",
+                "ignoreReadBeforeAssign": true
+            }
+        ],
+        "no-console": 1,
+        "promise/no-return-wrap": "error",
+        "promise/param-names": "error",
+        "promise/catch-or-return": "error",
+        "promise/no-nesting": 1,
+        "react/jsx-pascal-case": [2],
+        "no-invalid-this": "off",
+        "react/jsx-uses-vars": "error",
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/no-unknown-property": "off",
+        "promise/always-return": "off",
+        "indent": ["error", 4, {"SwitchCase": 1}],
+        "linebreak-style": "off",
+        "no-debugger": 2,
+        "complexity": 1,
+        "react-hooks/rules-of-hooks": "error",
+        "react/boolean-prop-naming": ["error", {"rule": "^(is|has|can|should)[A-Z]([A-Za-z0-9]?)+"}],
+        "quotes": ["error", "double"],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "react/no-unescaped-entities": "warn",
+        "@typescript-eslint/no-use-before-define": "off",
+        "require-jsdoc": "off"
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "jest": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 7,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": ["babel", "promise", "react-hooks", "@typescript-eslint", "prettier"],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}
