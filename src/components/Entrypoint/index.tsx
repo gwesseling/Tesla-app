@@ -5,7 +5,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {GestureHandlerRootView} from "react-native-gesture-handler";
 import Renderer from "_COMPONENTS/Renderer";
 import {Routes} from "_LIBS/enums";
-import routesMap from "_LIBS/routes";
+import routesMap, {RouteMap} from "_LIBS/routes";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +35,10 @@ const OPTIONS = {
 };
 
 export default function Entrypoint() {
+    function renderScreens([key, value]: RouteMap) {
+        return <Stack.Screen name={key} component={value} key={key} />;
+    }
+
     return (
         <View style={styles.container}>
             <StatusBar style="light" backgroundColor="#161718" />
@@ -42,9 +46,7 @@ export default function Entrypoint() {
             <NavigationContainer>
                 <GestureHandlerRootView style={styles.content}>
                     <Stack.Navigator initialRouteName={Routes.Home} screenOptions={OPTIONS}>
-                        {routesMap.map(([key, value]) => (
-                            <Stack.Screen name={key} component={value} key={key} />
-                        ))}
+                        {routesMap.map(renderScreens)}
                     </Stack.Navigator>
                 </GestureHandlerRootView>
 
