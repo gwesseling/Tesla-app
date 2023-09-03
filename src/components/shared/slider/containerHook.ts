@@ -19,12 +19,12 @@ export default function useSlider({min, max, value, onChange}: TypeConfig) {
     const [width, setWidth] = useState(0);
     const position = useSharedValue(0);
 
-    useEffect(() => {
+    function onLayout({nativeEvent}: LayoutChangeEvent) {
+        const width = nativeEvent.layout.width;
+
         const percentage = ((100 / max) * value) / 100;
         position.value = Math.max(Math.min(width * percentage, width), 0);
-    }, [value, width, max, position]);
 
-    function onLayout({nativeEvent}: LayoutChangeEvent) {
         setWidth(nativeEvent.layout.width);
     }
 

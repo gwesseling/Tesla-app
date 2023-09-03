@@ -1,6 +1,7 @@
 import {StyleSheet, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {NavigationContainer} from "@react-navigation/native";
+import {StackAnimationTypes} from "react-native-screens";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {GestureHandlerRootView} from "react-native-gesture-handler";
 import Renderer from "_COMPONENTS/Renderer";
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
 const OPTIONS = {
     headerShown: false,
     contentStyle: styles.screen,
+    animation: "fade" as StackAnimationTypes,
 };
 
 export default function Entrypoint() {
