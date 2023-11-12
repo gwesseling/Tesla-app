@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useWindowDimensions, LayoutChangeEvent} from "react-native";
 import {Gesture} from "react-native-gesture-handler";
-import {useSharedValue} from "react-native-reanimated";
+import {useSharedValue, useAnimatedStyle, interpolate} from "react-native-reanimated";
 
 export default function useDrawer(offset: number) {
     const [start, setStart] = useState(0);
@@ -28,5 +28,17 @@ export default function useDrawer(offset: number) {
             position.value = Math.max(Math.min(event.translationY + current.value, start), 0);
         });
 
-    return {start, position, gesture, onLayout};
+    const animatedStyles = useAnimatedStyle(() => ({
+        transform: [
+            {
+                translateY: position.value,
+            },
+        ],
+    }));
+
+    const overlayStyles = useAnimatedStyle(() => ({
+        opacity: interpolate(position.value, [0, start], [1, 0]),
+    }));
+
+    return {animatedStyles, overlayStyles, gesture, onLayout};
 }

@@ -1,6 +1,6 @@
 import {View, StyleSheet} from "react-native";
 import {GestureDetector} from "react-native-gesture-handler";
-import Animated, {useAnimatedStyle} from "react-native-reanimated";
+import Animated from "react-native-reanimated";
 import useSlider from "./containerHook";
 
 const styles = StyleSheet.create({
@@ -30,26 +30,18 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
-    min?: number;
-    max?: number;
-    value?: number;
+    min: number;
+    max: number;
+    value: number;
     onChange?: (value: number) => void;
 };
 
-export default function Slider({min = 0, max = 100, value = 0, onChange}: Props) {
-    const {position, gesture, onLayout} = useSlider({min, max, value, onChange});
-
-    const animatedStyles = useAnimatedStyle(() => ({
-        transform: [
-            {
-                translateX: position.value,
-            },
-        ],
-    }));
+export default function Slider({min, max, value, onChange}: Props) {
+    const {animatedStyles, gesture, onLayout} = useSlider({min, max, value, onChange});
 
     return (
         <GestureDetector gesture={gesture}>
-            <View style={styles.container} onLayout={onLayout} hitSlop={{top: 10, bottom: 10}}>
+            <View style={styles.container} onLayout={onLayout}>
                 <View style={styles.value} />
 
                 <Animated.View style={[styles.thumb, animatedStyles]} />

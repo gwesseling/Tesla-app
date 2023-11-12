@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import {LayoutChangeEvent} from "react-native";
-import {useSharedValue} from "react-native-reanimated";
+import {useSharedValue, useAnimatedStyle} from "react-native-reanimated";
 import {
     Gesture,
     GestureTouchEvent,
@@ -19,23 +19,22 @@ export default function useSlider({min, max, value, onChange}: TypeConfig) {
     const [width, setWidth] = useState(0);
     const position = useSharedValue(0);
 
-    useEffect(() => {
+    function onLayout({nativeEvent}: LayoutChangeEvent) {
+        const width = nativeEvent.layout.width;
+
         const percentage = ((100 / max) * value) / 100;
         position.value = Math.max(Math.min(width * percentage, width), 0);
-    }, [value, width, max, position]);
 
-    function onLayout(e: LayoutChangeEvent) {
-        setWidth(e.nativeEvent.layout.width);
+        setWidth(nativeEvent.layout.width);
     }
 
-    function onUpdate(e: GestureUpdateEvent<PanGestureHandlerEventPayload>) {
-        position.value = Math.max(Math.min(e.x, width), 0);
+    function onUpdate({x}: GestureUpdateEvent<PanGestureHandlerEventPayload>) {
+        position.value = Math.max(Math.min(x, width), 0);
         onValueChange();
     }
 
-    function onTouchesDown(e: GestureTouchEvent) {
-        const firstTouch = e.changedTouches[0];
-        position.value = firstTouch.x;
+    function onTouchesDown({changedTouches}: GestureTouchEvent) {
+        position.value = changedTouches[0].x;
     }
 
     function onTouchUp() {
@@ -50,11 +49,25 @@ export default function useSlider({min, max, value, onChange}: TypeConfig) {
     }
 
     // eslint-disable-next-line new-cap
-    const gesture = Gesture.Pan().onUpdate(onUpdate).onTouchesDown(onTouchesDown).onTouchesUp(onTouchUp);
+    const pan = Gesture.Pan().maxPointers(1).hitSlop(10).onUpdate(onUpdate);
+
+    // eslint-disable-next-line new-cap
+    const tap = Gesture.Tap().numberOfTaps(1).hitSlop(10).onTouchesDown(onTouchesDown).onTouchesUp(onTouchUp);
+
+    // eslint-disable-next-line new-cap
+    const gesture = Gesture.Exclusive(pan, tap);
+
+    const animatedStyles = useAnimatedStyle(() => ({
+        transform: [
+            {
+                translateX: position.value,
+            },
+        ],
+    }));
 
     return {
+        animatedStyles,
         gesture,
-        position,
         onLayout,
         onValueChange,
     };

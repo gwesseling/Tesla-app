@@ -63,7 +63,7 @@ export default function Hotbar() {
                 <Text style={styles.limitText}>Charge limit: {limit}%</Text>
 
                 <View style={styles.slider}>
-                    <Slider onChange={onChange} value={limit} />
+                    <Slider min={0} max={100} value={limit} onChange={onChange} />
                 </View>
 
                 <Text style={styles.limitState}>2 kWh added during last charging session</Text>

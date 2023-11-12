@@ -3,7 +3,7 @@ import BatteryIcon from "_COMPONENTS/icons/Battery";
 import Profile from "_COMPONENTS/Profile";
 
 const styles = StyleSheet.create({
-    content: {
+    container: {
         flexDirection: "row",
         justifyContent: "space-between",
         padding: 20,
@@ -18,24 +18,31 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 40,
     },
+    content: {
+        flexDirection: "row",
+        alignItems: "center",
+    },
+    range: {
+        marginLeft: 10,
+        color: "#888a90",
+        fontWeight: "bold",
+    },
 });
 
 export default function Banner() {
     return (
-        <>
-            <View style={styles.content}>
-                <View>
-                    <Text style={styles.title}>Tesla</Text>
-                    <Text style={styles.subtitle}>Roadster</Text>
+        <View style={styles.container}>
+            <View>
+                <Text style={styles.title}>Tesla</Text>
+                <Text style={styles.subtitle}>Roadster</Text>
 
-                    <View style={{flexDirection: "row", alignItems: "center"}}>
-                        <BatteryIcon height={25} width={25} fill="#888a90" />
-                        <Text style={{marginLeft: 10, color: "#888a90", fontWeight: "bold"}}>510km</Text>
-                    </View>
+                <View style={styles.content}>
+                    <BatteryIcon height={25} width={25} fill="#888a90" />
+                    <Text style={styles.range}>510km</Text>
                 </View>
-
-                <Profile />
             </View>
-        </>
+
+            <Profile />
+        </View>
     );
 }

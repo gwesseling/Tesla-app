@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
 });
 
 export default function Climate() {
-    const {temperature, decreaseTemperature, increaseTemperature} = useClimate();
     const {isOn, toggle} = useToggle();
     const {isOn: isAircoOn, toggle: toggleFans} = useToggle();
+    const {temperature, decreaseTemperature, increaseTemperature} = useClimate();
 
     return (
         <>
